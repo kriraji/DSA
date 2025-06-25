@@ -1,8 +1,8 @@
 class Solution {
 public:
     int findJudge(int n, vector<vector<int>>& trust) {
-     map<int,int> m1;
-     map<int,int> m2;
+     unordered_map<int,int> m1;
+     unordered_map<int,int> m2;
      for(int i=0;i<trust.size();i++){
         m1[trust[i][0]]++;
         m2[trust[i][1]]++;
