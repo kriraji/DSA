@@ -38,7 +38,7 @@ vector<int> rightsmallest(vector<int>&arr){
       int maxi=INT_MIN;
       int sum=0;
        for(int i=0;i<n;i++){
-        sum=((i-NSL[i])+(NSR[i]-i)-1)*heights[i];
+        sum=(NSR[i]-NSL[i]-1)*heights[i];
         maxi=max(sum,maxi);
        }
        return maxi;
