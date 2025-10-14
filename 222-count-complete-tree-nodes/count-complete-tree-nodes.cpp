@@ -12,15 +12,15 @@
 class Solution {
 public:
 int cnt=0;
-void postorder(TreeNode* node){
+void order(TreeNode* node){
     if(node==nullptr)
      return;
-     postorder(node->left);
-     postorder(node->right);
-     cnt++;
+      cnt++;
+     order(node->left);
+     order(node->right);
  }
     int countNodes(TreeNode* root) {
- postorder(root);
+ order(root);
         return cnt;
     }
 };
