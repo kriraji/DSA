@@ -11,18 +11,21 @@
  */
 class Solution {
 public:
-vector<int> vec;
-void inorder(TreeNode* node){
+int cnt=0, kthval;
+void inorder(TreeNode* node,int k){
     if(node==nullptr)
      return;
-    inorder(node->left);
-    vec.push_back(node->val);
-    inorder(node->right);
+    inorder(node->left,k);
+     cnt++;
+     if(cnt==k){
+      kthval=node->val;
+       return;
+     }
+    inorder(node->right,k);
     return;
 }
     int kthSmallest(TreeNode* root, int k) {
-        inorder(root);
-        sort(vec.begin(),vec.end());
-        return vec[k-1];
+        inorder(root,k);
+        return kthval;
     }
 };
