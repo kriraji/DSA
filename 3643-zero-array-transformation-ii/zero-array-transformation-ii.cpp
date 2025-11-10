@@ -12,19 +12,14 @@ bool getdiffarray(vector<int>& nums, vector<vector<int>>& queries,int mid){
     if(ri+1<n)
      vec[ri+1]-=query;
  }
- for(int i=1;i<n;i++)
- vec[i]+=vec[i-1];
+ int sum=0;
  for(int i=0;i<n;i++){
-    if(vec[i]>temp[i])
-     temp[i]=0;
-     else{
-        temp[i]=temp[i]-vec[i];
- }
+  sum+=vec[i];
+  vec[i]=sum;
+ if(nums[i]-vec[i]>0)
+  return false;
 }
-for(int i=0;i<n;i++)
- if(temp[i]!=0)
-   return false;
-   return true;
+return true;
 }
     int minZeroArray(vector<int>& nums, vector<vector<int>>& queries) {
         int q_size=queries.size();
